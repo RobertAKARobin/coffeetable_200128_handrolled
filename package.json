@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/RobertAKARobin/coffeetable/issues"
   },
-  "homepage": "https://github.com/RobertAKARobin/coffeetable#readme"
+  "homepage": "https://github.com/RobertAKARobin/coffeetable#readme",
+  "dependencies": {
+    "redux": "^4.0.5",
+    "rxjs": "^6.5.4"
+  }
 }
