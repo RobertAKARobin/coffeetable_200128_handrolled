@@ -1,9 +1,9 @@
 export class Load implements Action {
-  type: '[Data] Load';
+  type = '[Data] Load';
 }
 
 export class LoadSuccess implements Action {
-  type: '[Data] Load success';
+  type = '[Data] Load success';
 
   constructor(
     public payload: DataState,
@@ -11,7 +11,7 @@ export class LoadSuccess implements Action {
 }
 
 export class LoadFail implements Action {
-  type: '[Data] Load fail';
+  type = '[Data] Load fail';
 
   constructor(
     public error = true,

@@ -43,7 +43,7 @@ function dev(env, argv) {
       open: false,
       port: 9000,
       publicPath: '/dist/',
-      watchContentBase: false,
+      watchContentBase: true,
       writeToDisk: true
     },
     mode: 'development',
