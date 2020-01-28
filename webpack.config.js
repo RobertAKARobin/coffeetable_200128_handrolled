@@ -2,17 +2,10 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = {
-  devServer: {
-    compress: true,
-    port: 9000,
-    publicPath: '/dist/',
-    writeToDisk: true
-  },
+const baseConfig = {
   entry: [
     './src/index.ts',
   ],
-  mode: 'development',
   module: {
     rules: [
       {
@@ -37,5 +30,39 @@ module.exports = {
       }),
     ],
   },
-  watch: true,
 };
+
+function dev(env, argv) {
+  const config = {
+    ...baseConfig,
+    devServer: {
+      compress: false,
+      hot: false,
+      inline: false,
+      liveReload: false,
+      open: false,
+      port: 9000,
+      publicPath: '/dist/',
+      watchContentBase: false,
+      writeToDisk: true
+    },
+    mode: 'development',
+    watch: true,
+  }
+  return config;
+}
+
+function prod(env, argv) {
+  const config = {
+    ...baseConfig,
+  }
+  return config;
+}
+
+module.exports = function(env, argv){
+  if (argv.mode === 'production') {
+    return prod(...arguments);
+  } else {
+    return dev(...arguments);
+  }
+}
