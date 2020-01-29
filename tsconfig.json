@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "declaration": false,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": [
       "esnext",

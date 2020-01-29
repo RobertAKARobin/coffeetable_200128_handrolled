@@ -1,5 +1,5 @@
 import {DataActions} from './actions';
-import * as initialData from './initial.json';
+import initialData from './initial.json';
 
 export const dataInitialState: DataState = initialData;
 
@@ -10,6 +10,11 @@ export function dataReducer(
   switch (action.type) {
     case DataActions.LOAD:
       return initialData;
+    case DataActions.PUSH:
+      return [
+        ...state,
+        action.payload,
+      ];
     default:
       return state;
   }

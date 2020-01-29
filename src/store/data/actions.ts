@@ -2,6 +2,7 @@ export class DataActions {
   static LOAD = 'Data: Load';
   static LOAD_SUCCESS = 'Data: Load success';
   static LOAD_FAILURE = 'Data: Load failure';
+  static PUSH = 'Data: Push';
 
   static load = (): Action<void> => ({
     type: DataActions.LOAD,
@@ -15,6 +16,11 @@ export class DataActions {
   static loadFailure = (payload: string = ''): Action<string> => ({
     type: DataActions.LOAD_FAILURE,
     error: true,
+    payload,
+  });
+
+  static push = (payload: number): Action<number> => ({
+    type: DataActions.PUSH,
     payload,
   });
 }
