@@ -1,7 +1,6 @@
-declare interface Action {
-  type: string;
-
+declare interface Action<T> {
   error?: boolean;
   meta?: any;
-  payload?: any;
+  payload?: T;
+  type: string;
 }

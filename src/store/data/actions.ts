@@ -1,20 +1,20 @@
-export class Load implements Action {
-  type = '[Data] Load';
-}
+export class DataActions {
+  static LOAD = 'Data: Load';
+  static LOAD_SUCCESS = 'Data: Load success';
+  static LOAD_FAILURE = 'Data: Load failure';
 
-export class LoadSuccess implements Action {
-  type = '[Data] Load success';
+  static load = (): Action<void> => ({
+    type: DataActions.LOAD,
+  });
 
-  constructor(
-    public payload: DataState,
-  ) {}
-}
+  static loadSuccess = (payload: DataState): Action<DataState> => ({
+    type: DataActions.LOAD_SUCCESS,
+    payload,
+  });
 
-export class LoadFail implements Action {
-  type = '[Data] Load fail';
-
-  constructor(
-    public error = true,
-    public payload: DataState,
-  ) {}
+  static loadFailure = (payload: string = ''): Action<string> => ({
+    type: DataActions.LOAD_FAILURE,
+    error: true,
+    payload,
+  });
 }
